@@ -15,7 +15,7 @@ class Player{
     checkAnswer(){
       let correctAns = this._chosenQ._choice[this._chosenQ._answer]
         if(correctAns === this._chosenAns){
-            Player.points += 1;
+            this._points += 1;
             return 'Correct!';
         }
         return 'Wrong!';
