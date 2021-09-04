@@ -13,9 +13,9 @@ class Player{
     doQuiz(num, choose){
         if(questionsList[num-1]._answer === choose){
             this._points +=1;
-            return 'Correct!';
+            return `Player ${this._name} has answered the question "${questionsList[num-1]._question}"\nchoice chosen: ${choose}(${questionsList[num-1]._choice[choose]})\ncorrect choice : ${questionsList[num-1]._answer}(${questionsList[num-1]._choice[questionsList[num-1]._answer]})\nStatus: 'Correct!'\nTotal Scores: ${this._points}`;
         }
-        return 'Wrong!';
+        return `Player ${this._name} has answered the question "${questionsList[num-1]._question}"\nchoice chosen: ${choose}(${questionsList[num-1]._choice[choose]})\ncorrect choice : ${questionsList[num-1]._answer}(${questionsList[num-1]._choice[questionsList[num-1]._answer]})\nStatus: 'Wrong!'\nTotal Scores: ${this._points}`;
     }
 }
 
@@ -28,7 +28,6 @@ questionsList[4] = new questions('What is root of 121', { 1: 10, 2: 11, 3: 12, 4
 
 let A = new Player('A');
 console.log(A.doQuiz(1,3));
-console.log(A.doQuiz(2,1));
 
 
 
