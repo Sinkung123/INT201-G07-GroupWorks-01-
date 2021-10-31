@@ -34,11 +34,6 @@ for (let product of products) {
   pProductBuyEle.setAttribute("type", "button");
   pProductBuyEle.setAttribute("class", "btn btn-primary");
   pProductBuyEle.textContent = "Buy Now";
-  pProductBuyEle.setAttribute("onclick", "addAlert()");
   divProductEle.appendChild(pProductBuyEle);
   divProductsEle.appendChild(divProductEle);
-}
-
-function addAlert() {
-    alert("You add to cart now!");
 }
