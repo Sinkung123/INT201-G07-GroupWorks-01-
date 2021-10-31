@@ -38,3 +38,7 @@ for (let product of products) {
   divProductEle.appendChild(pProductBuyEle);
   divProductsEle.appendChild(divProductEle);
 }
+
+function addAlert() {
+    alert("You add to cart now!");
+}
