@@ -6,16 +6,29 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Shoes</title>
+    <style>
+      button{
+        margin-bottom: 15px;
+      }
+    </style>
   </head>
 
   <body>
     <div id="heading">
-      <h2 style="text-align: center">Best Shoes Shop</h2>
+      <h2 style="text-align: center"><i class="fa fa-shopping-cart"></i> Best Shoes Shop</h2>
     </div>
-
+    
+    <center>
+      <div id="tap-bar">
+        <button type="button" id="toAllShoe" class="btn btn-secondary">All Shoes</button>
+        <button type="button" id="toMenShoe" class="btn btn-primary">Men's Shoes</button>
+        <button type="button" id="toWomenShoe" class="btn btn-primary">Women's Shoes</button>
+      </div>
+    </center>
     <div id="products"></div>
-
+    
     <script src="product-script.js" type="module"></script>
   </body>
 </html>

@@ -1,147 +1,83 @@
-import { productsM } from "./productM.js";
-import { productsF } from "./productF.js";
-const divProductsEle = document.querySelector("#products");
-divProductsEle.setAttribute("class", "container row justify-content-center mx-auto");
+import { products } from './product.js';
+const divProductsEle = document.querySelector('#products');
+divProductsEle.setAttribute('class', 'container row mx-auto')
+// divProductsEle.setAttribute('class', 'container row justify-content-center mx-auto');
+var attr = document.createAttribute('style');
+attr.value = 'color: red';
+genProductList();
 
-const button2ProductEle = document.createElement("button");
-button2ProductEle.setAttribute("type", "button");
-button2ProductEle.setAttribute("class", "btn btn-primary");
-button2ProductEle.textContent = "รองเท้าผู้ชาย";
-button2ProductEle.onclick = function() {toMaleShoe()};
-button2ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: gray")
-divProductsEle.appendChild(button2ProductEle);
+const toAllShoeEle = document.querySelector('#toAllShoe');
+toAllShoeEle.onclick = function() {removeProductList(); genProductList(); changeColorButton(toAllShoeEle);}
+const toMenShoeEle = document.querySelector('#toMenShoe');
+toMenShoeEle.onclick = function() {removeProductList(); genProductList('M'); changeColorButton(toMenShoeEle);}
 
-const button1ProductEle = document.createElement("button");
-button1ProductEle.setAttribute("type", "button");
-button1ProductEle.setAttribute("class", "btn btn-primary");
-button1ProductEle.textContent = "รองเท้าผู้หญิง";
-button1ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: blue")
-button1ProductEle.onclick = function() {toFemaleShoe()};
-
-divProductsEle.appendChild(button1ProductEle);
+const toWomenShoeEle = document.querySelector('#toWomenShoe');
+toWomenShoeEle.onclick = function() {removeProductList(); genProductList('F'); changeColorButton(toWomenShoeEle);}
 
 
 
-for (let product of productsM) {
-  const divProductEle = document.createElement("div");
-  divProductEle.setAttribute("id", product.productId);
-  divProductEle.setAttribute("class", "container col-4 mx-auto");
-  divProductEle.setAttribute("style", "margin-bottom: 50px; text-align: center;")
 
-  const pProductImgEle = document.createElement("img");
-  pProductImgEle.setAttribute("src", product.img);
-  pProductImgEle.setAttribute("height", 200);
-  divProductEle.appendChild(pProductImgEle);
-
-  const pProductIdEle = document.createElement("p");
-  pProductIdEle.textContent = product.productId;
-  divProductEle.appendChild(pProductIdEle);
-
-  const pProductNameEle = document.createElement("p");
-  pProductNameEle.textContent = product.productName;
-  divProductEle.appendChild(pProductNameEle);
-
-  const pProductPriceEle = document.createElement("p");
-  pProductPriceEle.textContent = product.price + " Baht";
-  divProductEle.appendChild(pProductPriceEle);
-  
-  const pProductStockEle = document.createElement('p');
-  pProductStockEle.textContent = "Available : " + product.stock;
-  divProductEle.appendChild(pProductStockEle);
-
-  const pProductBuyEle = document.createElement("button");
-  pProductBuyEle.setAttribute("type", "button");
-  pProductBuyEle.setAttribute("class", "btn btn-primary");
-  pProductBuyEle.textContent = "Buy Now";
-  divProductEle.appendChild(pProductBuyEle);
-
-  divProductsEle.appendChild(divProductEle);
+function changeColorButton(type){
+    toAllShoeEle.setAttribute('class', 'btn btn-primary')
+    toMenShoeEle.setAttribute('class', 'btn btn-primary')
+    toWomenShoeEle.setAttribute('class', 'btn btn-primary')
+    type.setAttribute('class', 'btn btn-secondary')
 }
 
+function genProductList(gender = 'U'){
+    for (let product of products) {
+        if(gender == product.productGender || gender === 'U'){
+            const divProductEle = document.createElement('div');
+            divProductEle.setAttribute('id', product.productId);
+            divProductEle.setAttribute('class', 'col-4 card border-0 mb-4 mx-2 p-0');
+            divProductEle.setAttribute('style', 'cursor: pointer; width: 25em;')
 
-function toFemaleShoe(){
-  button1ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: gray")
-  button2ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: blue")
-  for (let product of productsM){
-    let removeId = document.getElementById(product.productId);
-    divProductsEle.removeChild(removeId);
-  }
-  for (let product of productsF) {
-    const divProductEle = document.createElement("div");
-    divProductEle.setAttribute("id", product.productId);
-    divProductEle.setAttribute("class", "container col-4 mx-auto");
-    divProductEle.setAttribute("style", "margin-bottom: 50px; text-align: center;")
-  
-    const pProductImgEle = document.createElement("img");
-    pProductImgEle.setAttribute("src", product.img);
-    pProductImgEle.setAttribute("height", 200);
-    divProductEle.appendChild(pProductImgEle);
-  
-    const pProductIdEle = document.createElement("p");
-    pProductIdEle.textContent = product.productId;
-    divProductEle.appendChild(pProductIdEle);
-  
-    const pProductNameEle = document.createElement("p");
-    pProductNameEle.textContent = product.productName;
-    divProductEle.appendChild(pProductNameEle);
-  
-    const pProductPriceEle = document.createElement("p");
-    pProductPriceEle.textContent = product.price + " Baht";
-    divProductEle.appendChild(pProductPriceEle);
-    
-    const pProductStockEle = document.createElement('p');
-    pProductStockEle.textContent = "Available : " + product.stock;
-    divProductEle.appendChild(pProductStockEle);
-  
-    const pProductBuyEle = document.createElement("button");
-    pProductBuyEle.setAttribute("type", "button");
-    pProductBuyEle.setAttribute("class", "btn btn-primary");
-    pProductBuyEle.textContent = "Buy Now";
-    divProductEle.appendChild(pProductBuyEle);
-  
-    divProductsEle.appendChild(divProductEle);
-  }
+            const pProductImgEle = document.createElement('img');
+            pProductImgEle.setAttribute('src', product.img);
+            pProductImgEle.setAttribute('class', 'card-img-top');
+            divProductEle.appendChild(pProductImgEle);
+          
+            const pProductIdEle = document.createElement('h5');
+            pProductIdEle.textContent = product.productId;
+            pProductIdEle.setAttribute('class', 'card-title text-center');
+            // pProductIdEle.setAttribute('style', 'margin: -40px 0px 30px;');
+            pProductIdEle.setAttribute('style', 'margin: -380px 0px 370px;');
+            divProductEle.appendChild(pProductIdEle);
+          
+            const pProductNameEle = document.createElement('h5');
+            pProductNameEle.textContent = product.productName;
+            pProductNameEle.setAttribute('class', 'card-title');
+            divProductEle.appendChild(pProductNameEle);
+          
+            const pProductPriceEle = document.createElement('h6');
+            pProductPriceEle.textContent = product.productPrice + ' Baht';
+            pProductPriceEle.setAttribute('class', 'card-text text-secondary');
+            divProductEle.appendChild(pProductPriceEle);
+            
+            const pProductStockEle = document.createElement('h6');
+            pProductStockEle.textContent = 'Available : ' + product.productStock;
+            pProductStockEle.setAttribute('class', 'card-text text-secondary');
+            divProductEle.appendChild(pProductStockEle);
+          
+            // const pProductBuyEle = document.createElement('button');
+            // pProductBuyEle.setAttribute('type', 'button');
+            // pProductBuyEle.setAttribute('class', 'btn btn-primary');
+            // pProductBuyEle.textContent = 'Buy Now';
+            // pProductBuyEle.onclick = function() {}
+            // divProductEle.appendChild(pProductBuyEle);
+          
+            divProductsEle.appendChild(divProductEle);
+        }
+    }
 }
-function toMaleShoe(){
-  button2ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: gray")
-  button1ProductEle.setAttribute("style", "margin-bottom: 10px; background-color: blue")
-  for (let product of productsF){
-    let removeId = document.getElementById(product.productId);
-    divProductsEle.removeChild(removeId);
-  }
-  for (let product of productsM) {
-    const divProductEle = document.createElement("div");
-    divProductEle.setAttribute("id", product.productId);
-    divProductEle.setAttribute("class", "container col-4 mx-auto");
-    divProductEle.setAttribute("style", "margin-bottom: 50px; text-align: center;")
-  
-    const pProductImgEle = document.createElement("img");
-    pProductImgEle.setAttribute("src", product.img);
-    pProductImgEle.setAttribute("height", 200);
-    divProductEle.appendChild(pProductImgEle);
-  
-    const pProductIdEle = document.createElement("p");
-    pProductIdEle.textContent = product.productId;
-    divProductEle.appendChild(pProductIdEle);
-  
-    const pProductNameEle = document.createElement("p");
-    pProductNameEle.textContent = product.productName;
-    divProductEle.appendChild(pProductNameEle);
-  
-    const pProductPriceEle = document.createElement("p");
-    pProductPriceEle.textContent = product.price + " Baht";
-    divProductEle.appendChild(pProductPriceEle);
-    
-    const pProductStockEle = document.createElement('p');
-    pProductStockEle.textContent = "Available : " + product.stock;
-    divProductEle.appendChild(pProductStockEle);
-  
-    const pProductBuyEle = document.createElement("button");
-    pProductBuyEle.setAttribute("type", "button");
-    pProductBuyEle.setAttribute("class", "btn btn-primary");
-    pProductBuyEle.textContent = "Buy Now";
-    divProductEle.appendChild(pProductBuyEle);
-  
-    divProductsEle.appendChild(divProductEle);
-  }
+
+function removeProductList(){
+    let size = divProductsEle.childNodes.length;
+    for(let i = 0; i < size; i++){
+      divProductsEle.removeChild(divProductsEle.childNodes[0]);
+    }
+    // for(let product of divProductsEle.childNodes){
+    //     console.log(product)
+    //     divProductsEle.removeChild(product);
+    // }
 }
