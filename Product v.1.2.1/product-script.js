@@ -1,5 +1,5 @@
 import { products } from './product.js';
-import { removeCart,countCart,addCart } from './cart.js';
+import { removeCart,countCart,addCart,cart } from './cart.js';
 const divProductsEle = document.querySelector('#products');
 divProductsEle.setAttribute('class', 'container row mx-auto')
 // divProductsEle.setAttribute('class', 'container row justify-content-center mx-auto');
