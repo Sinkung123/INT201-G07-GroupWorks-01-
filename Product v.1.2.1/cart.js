@@ -10,29 +10,18 @@ export function addCart(event)
 { 
     let id = event.target.id;
     let qty = 1 ;
-    let check = false;
-    if(cart.length!=0){
-        for(let i=0;i<cart.length;i++)
+    let x = cart.filter( cart => cart.pId == id );
+    if(cart.find( id => { return id === x[0];})!= undefined)
         {
-            if(check == false)
-             if(cart[i].pId==id) {
-                check = true ;
-                cart[i].qty += 1;}
-             else{check = false}           
-        }
-        if(check == false){
-            cart.push({pId : id,qty : qty})
-            alert(` " ${id} " added in your cart`);}
+            cart[cart.findIndex( id => { return id === x[0];})].qty += 1;
             countProduct.textContent = countCart();
             //console.log(cart);
-
-    }else{        
-        cart.push({pId : id,qty : qty} )
-        if(cart.includes(id)){}
-        else{ alert(` " ${id} " added in your cart`);}  
+        }
+    else{
+        cart.push({pId : id,qty : qty} );
+        alert(` " ${id} " added in your cart`);
         countProduct.textContent = countCart();
         //console.log(cart);
-        
     }
 }
 
