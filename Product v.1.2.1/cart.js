@@ -2,6 +2,7 @@
 export let cart = [];
 
 const countProduct = document.querySelector('#count');
+
 const deleteBtn = document.querySelector('#delete');
 deleteBtn.addEventListener("click",removeCart);
 
