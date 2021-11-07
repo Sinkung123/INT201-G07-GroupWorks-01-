@@ -16,6 +16,7 @@ sFormEle.setAttribute('class', 'col-auto form-control w-25');
 sFormEle.setAttribute('type', 'text');
 sFormEle.setAttribute('name', '');
 sFormEle.setAttribute('value', '');
+sFormEle.style.visibility = 'hidden';
 divSearchEle.appendChild(sFormEle);
 
 const sdivSpacingEle = document.createElement('div');
@@ -26,6 +27,7 @@ const sButtonEle = document.createElement('button');
 sButtonEle.setAttribute('id', 'searchBtn');
 sButtonEle.setAttribute('class', 'col-auto btn btn-primary ml-2');
 sButtonEle.textContent = 'Search';
+sButtonEle.style.visibility = 'hidden';
 divSearchEle.appendChild(sButtonEle);
 
 const shoeName = document.getElementById('shoeName')
