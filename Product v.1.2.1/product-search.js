@@ -46,8 +46,6 @@ searchBtn.onclick = function() {
 }
 
 
-
-
 let createProductByName = (search) => products.forEach(product => {
     if(product.productName.toLowerCase().match(search.toLowerCase())){
         const divProductEle = document.createElement('div');
