@@ -6,7 +6,7 @@ divSearchEle.setAttribute('class', 'container row mt-5 mx-auto');
 
 const sIconEle = document.createElement('i');
 sIconEle.setAttribute('class', 'col-auto fa fa-search fa-lg');
-sIconEle.setAttribute('style', `padding-top: 10px;`);
+sIconEle.setAttribute('style', `padding-top: 10px; cursor: pointer;`);
 sIconEle.onclick = function() {
 if(sFormEle.style.visibility == 'hidden'){
     sFormEle.style.visibility = 'visible';
