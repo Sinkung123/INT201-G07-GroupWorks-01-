@@ -7,7 +7,15 @@ divSearchEle.setAttribute('class', 'container row mt-5 mx-auto');
 const sIconEle = document.createElement('i');
 sIconEle.setAttribute('class', 'col-auto fa fa-search fa-lg');
 sIconEle.setAttribute('style', `padding-top: 10px;`);
-sIconEle.onclick = function() {SearchIconBtn()};
+sIconEle.onclick = function() {
+if(sFormEle.style.visibility == 'hidden'){
+    sFormEle.style.visibility = 'visible';
+    sButtonEle.style.visibility = 'visible';
+}
+else{
+    sFormEle.style.visibility = 'hidden';
+    sButtonEle.style.visibility = 'hidden';
+}};
 divSearchEle.appendChild(sIconEle);
 
 const sFormEle = document.createElement('input');
@@ -35,17 +43,6 @@ const searchBtn = document.getElementById('searchBtn')
 searchBtn.onclick = function() {
     removeProductList(); 
     createProductByName(shoeName.value);
-}
-
-function SearchIconBtn(){
-    if(sFormEle.style.visibility == 'hidden'){
-        sFormEle.style.visibility = 'visible';
-        sButtonEle.style.visibility = 'visible';
-    }
-    else{
-        sFormEle.style.visibility = 'hidden';
-        sButtonEle.style.visibility = 'hidden';
-    }
 }
 
 
@@ -101,13 +98,20 @@ let createProductByName = (search) => products.forEach(product => {
 //     return pName.toLowerCase().match(sName.toLowerCase());
 // }
 
-function removeProductList(){
+let removeProductList = () => {
     let size = divProductsEle.childNodes.length;
     for(let i = 0; i < size; i++){
-      divProductsEle.removeChild(divProductsEle.childNodes[0]);
+        divProductsEle.removeChild(divProductsEle.childNodes[0]);
     }
-    // for(let product of divProductsEle.childNodes){
-    //     console.log(product)
-    //     divProductsEle.removeChild(product);
-    // }
 }
+
+// function removeProductList(){
+//     let size = divProductsEle.childNodes.length;
+//     for(let i = 0; i < size; i++){
+//       divProductsEle.removeChild(divProductsEle.childNodes[0]);
+//     }
+//     // for(let product of divProductsEle.childNodes){
+//     //     console.log(product)
+//     //     divProductsEle.removeChild(product);
+//     // }
+// }
