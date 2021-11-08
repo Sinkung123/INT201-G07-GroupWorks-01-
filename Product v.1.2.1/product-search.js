@@ -1,4 +1,5 @@
 import { products } from './product.js';
+import { removeCart,countCart,addCart,cart } from './cart.js';
 const divProductsEle = document.querySelector('#products');
 
 const divSearchEle = document.querySelector('#search');
@@ -80,12 +81,13 @@ let createProductByName = (search) => products.forEach(product => {
         pProductStockEle.setAttribute('class', 'card-text text-secondary');
         divProductEle.appendChild(pProductStockEle);
       
-        // const pProductBuyEle = document.createElement('button');
-        // pProductBuyEle.setAttribute('type', 'button');
-        // pProductBuyEle.setAttribute('class', 'btn btn-primary');
-        // pProductBuyEle.textContent = 'Buy Now';
-        // pProductBuyEle.onclick = function() {}
-        // divProductEle.appendChild(pProductBuyEle);
+        const pProductBuyEle = document.createElement('button');
+        pProductBuyEle.setAttribute('id', product.productId);
+        pProductBuyEle.setAttribute('type', 'button');
+        pProductBuyEle.setAttribute('class', 'btn btn-primary');
+        pProductBuyEle.textContent = 'Buy Now';
+        pProductBuyEle.addEventListener("click", addCart);
+        divProductEle.appendChild(pProductBuyEle);
       
         divProductsEle.appendChild(divProductEle);
     }
