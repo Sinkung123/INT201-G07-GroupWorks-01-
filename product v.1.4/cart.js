@@ -4,8 +4,9 @@ deleteCartBtnEle.addEventListener("click",removeCart);
 export let cart = [];
 
 export function addCart(e){
-    let x = cart.filter(cart => cart.productId == e.target.parentNode.id);
-    if(x == false){
+    let x = cart.findIndex(cart => cart.productId == e.target.parentNode.id);
+    // let x = cart.filter(cart => cart.productId == e.target.parentNode.id);
+    if(x == -1){
         alert(`${e.target.parentNode.id} added in your cart`);
         cart.push({
             productId: e.target.parentNode.id,
@@ -15,7 +16,7 @@ export function addCart(e){
         })
     }
     else{
-        cart[cart.findIndex(ele => {return ele.productId === e.target.parentNode.id})].qty++;
+        cart[cart.findIndex(ele => ele.productId === e.target.parentNode.id)].qty++;
     }
     countCartEle.textContent = countCart();
 }

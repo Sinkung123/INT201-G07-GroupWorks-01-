@@ -29,7 +29,15 @@
               <button type="button" id="toWomenShoe" class="btn btn-primary" value="F">Women's Shoes</button>
             </div>
         </center>
-        <div id="search"></div>
+        <div id="search" class="container row my-2 mx-auto">
+            <i id="search-icon" class="col-auto fa fa-search fa-lg" 
+                style="padding-top: 10px; cursor: pointer;"></i>
+            <input id="shoeName" type="text" class="col-auto form-control w-25" 
+                style="visibility: hidden;">
+            <div class="col-auto"></div>
+            <button id="searchBtn" class="col-auto btn btn-primary ml-2" 
+                style="visibility: hidden;">Search</button>
+        </div>
         
         <div id="cartDisplay" class="container row mx-auto justify-content-end px-0">
             <i class="col-auto fa fa-cart-plus fa-2x px-1 pt-1"></i>
@@ -41,8 +49,7 @@
         
         <script src="product-script.js" type="module"></script>
         <script src="product-search.js" type="module"></script>
-        <script src="product-genderFilter.js" type="module"></script>
-        <!-- <script src="cartDisplay.js" type="module"></script> -->
+        <script src="./Extra/product-genderFilter.js" type="module"></script>
         <script src="cart.js" type="module"></script>
     </body>
 </html>

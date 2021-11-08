@@ -1,48 +1,28 @@
-import { products } from './product.js';
-import {addCart,removeCart,countCart} from './cart.js';
+import {products} from './product.js';
+import {addCart} from './cart.js';
 const divProductsEle = document.querySelector('#products');
 
-const divSearchEle = document.querySelector('#search');
-divSearchEle.setAttribute('class', 'container row my-2 mx-auto');
+const sIconEle = document.getElementById('search-icon');
+sIconEle.addEventListener('click', hidden);
 
-const sIconEle = document.createElement('i');
-sIconEle.setAttribute('class', 'col-auto fa fa-search fa-lg');
-sIconEle.setAttribute('style', `padding-top: 10px; cursor: pointer;`);
-sIconEle.onclick = function() {
-if(sFormEle.style.visibility == 'hidden'){
-    sFormEle.style.visibility = 'visible';
-    sButtonEle.style.visibility = 'visible';
-}
-else{
-    sFormEle.style.visibility = 'hidden';
-    sButtonEle.style.visibility = 'hidden';
-}};
-divSearchEle.appendChild(sIconEle);
+const sFormEle = document.getElementById('shoeName');
 
-const sFormEle = document.createElement('input');
-sFormEle.setAttribute('id', 'shoeName');
-sFormEle.setAttribute('class', 'col-auto form-control w-25');
-sFormEle.setAttribute('type', 'text');
-sFormEle.setAttribute('name', '');
-sFormEle.setAttribute('value', '');
-sFormEle.style.visibility = 'hidden';
-divSearchEle.appendChild(sFormEle);
-
-const sdivSpacingEle = document.createElement('div');
-sdivSpacingEle.setAttribute('class', 'col-auto');
-divSearchEle.appendChild(sdivSpacingEle);
-
-const sButtonEle = document.createElement('button');
-sButtonEle.setAttribute('id', 'searchBtn');
-sButtonEle.setAttribute('class', 'col-auto btn btn-primary ml-2');
-sButtonEle.textContent = 'Search';
-sButtonEle.style.visibility = 'hidden';
+const sButtonEle = document.getElementById('searchBtn');
 sButtonEle.addEventListener('click', function() {
     removeProductList(); 
     createProductByName(shoeName.value);
 })
-divSearchEle.appendChild(sButtonEle);
 
+function hidden(){
+    if(sFormEle.style.visibility == 'hidden'){
+        sFormEle.style.visibility = 'visible';
+        sButtonEle.style.visibility = 'visible';
+    }
+    else{
+        sFormEle.style.visibility = 'hidden';
+        sButtonEle.style.visibility = 'hidden';
+    }
+}
 
 let createProductByName = (search) => products.forEach(product => {
     if(product.productName.toLowerCase().match(search.toLowerCase())){
@@ -90,11 +70,6 @@ let createProductByName = (search) => products.forEach(product => {
     }
 })
 
-
-// function matchName(pName = '', sName= ''){
-//     return pName.toLowerCase().match(sName.toLowerCase());
-// }
-
 let removeProductList = () => {
     let size = divProductsEle.childNodes.length;
     for(let i = 0; i < size; i++){
@@ -102,13 +77,3 @@ let removeProductList = () => {
     }
 }
 
-// function removeProductList(){
-//     let size = divProductsEle.childNodes.length;
-//     for(let i = 0; i < size; i++){
-//       divProductsEle.removeChild(divProductsEle.childNodes[0]);
-//     }
-//     // for(let product of divProductsEle.childNodes){
-//     //     console.log(product)
-//     //     divProductsEle.removeChild(product);
-//     // }
-// }

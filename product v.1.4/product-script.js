@@ -1,7 +1,7 @@
 import {products} from './product.js';
 import {addCart,removeCart,countCart} from './cart.js';
 const divProductsEle = document.querySelector('#products');
-divProductsEle.setAttribute('class', 'container row mx-auto border border-danger')
+divProductsEle.setAttribute('class', 'container row mx-auto')
 // divProductsEle.setAttribute('class', 'container row justify-content-center mx-auto');
 
 products.forEach(product => {

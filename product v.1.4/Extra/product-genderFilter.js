@@ -1,30 +1,29 @@
-import { products } from './product.js';
+import { products } from '../product.js';
 const divProductsEle = document.querySelector('#products');
 const genderFilterEle = document.getElementById('gender-filer');
 const allShoeBtnEle = document.getElementById('toAllShoe');
-// allShoeBtnEle.addEventListener('click', removeProductList);
-// allShoeBtnEle.addEventListener('click', genProductList);
+allShoeBtnEle.addEventListener('click', removeProductList);
+allShoeBtnEle.addEventListener('click', genProductList);
+allShoeBtnEle.addEventListener('click', changeColorButton);
 
 const menShoeBtnEle = document.getElementById('toMenShoe');
+menShoeBtnEle.addEventListener('click', removeProductList);
+menShoeBtnEle.addEventListener('click', genProductList);
+menShoeBtnEle.addEventListener('click', changeColorButton);
 
 
 const womenShoeBtnEle = document.getElementById('toWomenShoe')
 womenShoeBtnEle.addEventListener('click', removeProductList);
 womenShoeBtnEle.addEventListener('click', genProductList);
-womenShoeBtnEle.addEventListener('click', test);
+womenShoeBtnEle.addEventListener('click', changeColorButton);
 
 
-function test(event){
-    console.log(event.target.parentNode)
-    console.log(event.target)
-    console.log(genderFilterEle.childNodes)
-}
-
-function changeColorButton(event){
+function changeColorButton(e){
+    // let allBtn = genderFilterEle.childNodes.filter(ele => ele.nodeType != 3);
     genderFilterEle.childNodes.forEach(button => {
-        (currentBtn === button ? 
+        (e.target === button ? 
             button.setAttribute('class', 'btn btn-secondary mx-1') : button.setAttribute('class', 'btn btn-primary mx-1'));
-        if(currentBtn === button);
+        if(e.target === button);
     })
 }
 
