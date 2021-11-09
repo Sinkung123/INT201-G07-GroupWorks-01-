@@ -59,7 +59,6 @@ let createProductByName = (search) => products.forEach(product => {
         divProductEle.appendChild(pProductStockEle);
       
         const pProductBuyEle = document.createElement('button');
-        pProductBuyEle.setAttribute('id', product.productId);
         pProductBuyEle.setAttribute('type', 'button');
         pProductBuyEle.setAttribute('class', 'btn btn-primary');
         pProductBuyEle.textContent = 'Buy Now';
