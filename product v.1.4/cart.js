@@ -19,10 +19,6 @@ export function addCart(e){
     else{
         cart[x].qty++;
     }
-    countCartEle.textContent = countCart();
-    console.log(e)
-    console.log(e.target)
-    console.log(e.target.parentNode)
 }
 
 export function removeCart() {
