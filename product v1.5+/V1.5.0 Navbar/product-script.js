@@ -39,9 +39,17 @@ products.forEach(product => {
     
     const pProductBuyEle = document.createElement('button');
     pProductBuyEle.setAttribute('type', 'button');
-    pProductBuyEle.setAttribute('class', 'btn btn-primary');
-    pProductBuyEle.textContent = 'Buy Now';
-    pProductBuyEle.addEventListener('click', addCart);
+    if(product.productStock === 0){
+        pProductBuyEle.setAttribute('class', 'btn btn-secondary');
+        pProductBuyEle.textContent = 'Sold Out';
+        pProductBuyEle.addEventListener('click', function(e){alert(`${e.target.parentNode.id} is out of stock.`);});
+    }
+    else{
+        pProductBuyEle.setAttribute('class', 'btn btn-primary');
+        pProductBuyEle.textContent = 'Buy Now';
+        pProductBuyEle.addEventListener('click', addCart);
+    }
+    
     divProductEle.appendChild(pProductBuyEle);
     
     divProductsEle.appendChild(divProductEle);

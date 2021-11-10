@@ -19,6 +19,7 @@ export function addCart(e){
     else{
         cart[x].qty++;
     }
+    countCartEle.textContent = countCart();
 }
 
 export function removeCart() {
