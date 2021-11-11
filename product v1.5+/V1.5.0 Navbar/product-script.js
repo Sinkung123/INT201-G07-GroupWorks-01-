@@ -42,7 +42,7 @@ products.forEach(product => {
     if(product.productStock === 0){
         pProductBuyEle.setAttribute('class', 'btn btn-secondary');
         pProductBuyEle.textContent = 'Sold Out';
-        pProductBuyEle.addEventListener('click', function(e){alert(`${e.target.parentNode.id} is out of stock.`);});
+        pProductBuyEle.addEventListener('click', function(e){alert(`${e.target.parentNode.parentNode.id} is out of stock.`);});
     }
     else{
         pProductBuyEle.setAttribute('class', 'btn btn-primary');
