@@ -8,6 +8,13 @@ const signOutBtnEle = document.getElementById('sign-out');
 signInBtnEle.addEventListener('click', signIn);
 signOutBtnEle.addEventListener('click', signOut);
 
+if(CookieUtil.get('user') != null){
+    signInBtnEle.hidden = true;
+    signOutBtnEle.hidden = false;
+    welcomeTextEle.hidden = false;
+    userNameEle.hidden = false;
+    userNameEle.textContent = CookieUtil.get('user');
+}
 function signIn(){
     CookieUtil.set('user', 'Tester001');
     signInBtnEle.hidden = true;
