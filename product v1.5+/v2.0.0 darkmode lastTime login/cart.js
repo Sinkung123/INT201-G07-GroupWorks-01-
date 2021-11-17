@@ -2,10 +2,12 @@ import {products} from './product.js';
 const countCartEle = document.getElementById('cart-count');
 const deleteCartBtnEle = document.getElementById('delete-cart');
 deleteCartBtnEle.addEventListener('click', removeCart);
+
 if(JSON.parse(localStorage.getItem('cart')) === null){
     localStorage.setItem('cart', JSON.stringify([]));
 }
 let cart = JSON.parse(localStorage.getItem('cart'));
+
 countCartEle.textContent = countCart();
 export function addCart(e){
     let id = e.target.parentNode.parentNode.id;
