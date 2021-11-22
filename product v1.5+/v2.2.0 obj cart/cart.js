@@ -37,6 +37,7 @@ export let Cart = {
         Cart.cart = []
         localStorage.setItem('cart', JSON.stringify(Cart.cart));
         countCartEle.textContent = Cart.countCart();
+        alert(`Remove all products in the cart.`);
     },
     countCart(){
         return Object.values(this.cart).reduce((temp, {qty}) => temp + qty, 0)
