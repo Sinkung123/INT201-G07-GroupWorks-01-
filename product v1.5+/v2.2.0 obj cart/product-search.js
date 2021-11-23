@@ -30,7 +30,7 @@ function hidden(){
 
 function hiddenOtherProduct() {
     products.forEach(product => {
-        let pDivEle = document.getElementById(product.productId);
+        const pDivEle = document.getElementById(product.productId);
         if(product.productName.toLowerCase().includes(sFormEle.value.toLowerCase())){
             pDivEle.hidden = false;
         }

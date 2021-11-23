@@ -9,10 +9,10 @@ if(JSON.parse(localStorage.getItem('cart')) === null){
 export let Cart = {
     cart: JSON.parse(localStorage.getItem('cart')),
     addCart(e){
-        let id = e.target.parentNode.parentNode.id;
+        const id = e.target.parentNode.parentNode.id;
         // let productIndex = Cart.cart.findIndex(item => item.productId == id);
-        let productIndex = Cart.findId(id);
-        let p = products.find(product => product.productId == id);
+        const productIndex = Cart.findId(id);
+        const p = products.find(product => product.productId == id);
         if(productIndex == -1) {    //ถ้าไม่เจอ productนี้ในตะกร้า
             alert(`${id} added in your cart`);
             Cart.cart.push({
