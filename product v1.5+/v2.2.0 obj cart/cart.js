@@ -13,7 +13,7 @@ export let Cart = {
         // let productIndex = Cart.cart.findIndex(item => item.productId == id);
         const productIndex = Cart.findId(id);
         const p = products.find(product => product.productId == id);
-        if(productIndex == -1) {    //ถ้าไม่เจอ productนี้ในตะกร้า
+        if(productIndex === -1) {    //ถ้าไม่เจอ productนี้ในตะกร้า
             alert(`${id} added in your cart`);
             Cart.cart.push({
             productId: id,
