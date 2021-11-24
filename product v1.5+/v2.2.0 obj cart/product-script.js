@@ -9,20 +9,14 @@ products.forEach(product => {
     divProductEle.setAttribute('id', product.productId);
     divProductEle.setAttribute('class', 'rounded-lg overflow-hidden bg-gray-100 pb-4');
     
-
-    const divImgEle = document.createElement('div');
-    divImgEle.setAttribute('class', 'relative');
-
     const pProductImgEle = document.createElement('img');
     pProductImgEle.setAttribute('src', product.img);
-    divImgEle.appendChild(pProductImgEle);
+    divProductEle.appendChild(pProductImgEle);
     
     const pProductIdEle = document.createElement('p');
     pProductIdEle.textContent = product.productId;
-    pProductIdEle.setAttribute('class', 'absolute w-full bottom-0 leading-4 py-4 text-xl font-semibold text-center');
-    divImgEle.appendChild(pProductIdEle);
-
-    divProductEle.appendChild(divImgEle);
+    pProductIdEle.setAttribute('class', '-mt-12 w-full bottom-0 leading-4 py-4 text-xl font-semibold text-right px-6');
+    divProductEle.appendChild(pProductIdEle);
 
     
     const pProductNameEle = document.createElement('p');
@@ -59,10 +53,8 @@ products.forEach(product => {
     }
 
     divBuyEle.appendChild(pProductBuyEle);
-
     divProductEle.appendChild(divBuyEle);
 
-    
     divProductsEle.appendChild(divProductEle);
 }
 );

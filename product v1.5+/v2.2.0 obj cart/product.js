@@ -5,6 +5,7 @@ export let products = [
     productName: "Nike Air Force 1 '07",
     productPrice: "3,500",
     productStock: 2,
+    productType: "Shoe",
     productGender: "M"
   },
   {
@@ -13,6 +14,7 @@ export let products = [
     productName: "Nike Air Force 1 Fontanka",
     productPrice: "4,200",
     productStock: 4,
+    productType: "Shoe",
     productGender: "F"
   },
   {
@@ -21,6 +23,7 @@ export let products = [
     productName: "Nike Air Force 1 Shadow",
     productPrice: "4,200",
     productStock: 1,
+    productType: "Shoe",
     productGender: "F"
   },
   {
@@ -29,6 +32,7 @@ export let products = [
     productName: "Nike Dunk High 1985 SP",
     productPrice: "5,000",
     productStock: 4,
+    productType: "Shoe",
     productGender: "M"
   },
   {
@@ -37,6 +41,7 @@ export let products = [
     productName: "Nike Air Force 1 '07 LX",
     productPrice: "3,800",
     productStock: 0,
+    productType: "Shoe",
     productGender: "M"
   },
   {
@@ -45,6 +50,7 @@ export let products = [
     productName: "Nike Court Legacy",
     productPrice: "1,900",
     productStock: 0,
+    productType: "Shoe",
     productGender: "F"
   },
   {
@@ -53,6 +59,7 @@ export let products = [
     productName: "Air Jordan 1 Mid SE",
     productPrice: "4,600",
     productStock: 3,
+    productType: "Shoe",
     productGender: "M"
   },
   {
@@ -61,6 +68,7 @@ export let products = [
     productName: "Nike Dunk High Up",
     productPrice: "4,600",
     productStock: 0,
+    productType: "Shoe",
     productGender: "F"
   },
   {
@@ -69,18 +77,64 @@ export let products = [
     productName: "Nike Air Zoom Terra Kiger 7",
     productPrice: "5,200",
     productStock: 0,
+    productType: "Shoe",
     productGender: "F"
   },
-  // {
-  //   img: "img/products/S010.png",
-  //   productId: "S0010",
-  //   productName: "Nike Court Legacy",
-  //   productPrice: "1,900",
-  //   productStock: 0,
-  //   productGender: "F"
-  // },
+  {
+    img: "img/products/S010.png",
+    productId: "S010",
+    productName: "Air Jordan 1 Mid SE",
+    productPrice: "4,600",
+    productStock: 10,
+    productType: "Shoe",
+    productGender: "M"
+  },
 
-  
+  {
+    img: "img/products/C001.png",
+    productId: "C001",
+    productName: "Nike Dri-FIT",
+    productPrice: "1,200",
+    productStock: 7,
+    productType: "Clothing",
+    productGender: "M"
+  },
+  {
+    img: "img/products/C002.png",
+    productId: "C002",
+    productName: "Nike Pro Dri-FIT ADV",
+    productPrice: "1,900",
+    productStock: 5,
+    productType: "Clothing",
+    productGender: "M"
+  },
+  {
+    img: "img/products/C003.png",
+    productId: "C003",
+    productName: "Nike Sportswear Max 90",
+    productPrice: "3,500",
+    productStock: 9,
+    productType: "Clothing",
+    productGender: "M"
+  },
+  {
+    img: "img/products/C004.png",
+    productId: "C004",
+    productName: "Nike Sportswear Essential",
+    productPrice: "2,200",
+    productStock: 8,
+    productType: "Clothing",
+    productGender: "F"
+  },
+  {
+    img: "img/products/C005.png",
+    productId: "C005",
+    productName: "Nike Sportswear Icon Clash",
+    productPrice: "3,100",
+    productStock: 9,
+    productType: "Clothing",
+    productGender: "F"
+  },
 
 
 ];
