@@ -6,7 +6,6 @@ lightThemeIcon.addEventListener('click', darkMode)
 darkThemeIcon.addEventListener('click', darkMode)
 
 function darkMode(e){
-    console.log(e.target.id)
     if(e.target.id === 'lightColor' || localStorage.getItem('bgColor') === 'darkColor' && e.target.nodeType == 9){
         bodyEle.style.backgroundColor = '#222';
         lightThemeIcon.hidden = true;
