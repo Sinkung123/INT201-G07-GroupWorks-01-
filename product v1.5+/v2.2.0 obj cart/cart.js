@@ -47,11 +47,14 @@ export let Cart = {
     },
     showCart(){
         Cart.cart.sort((a,b) => a.productId.localeCompare(b.productId)) //เรียง id
-        let test = '';
+        let text = '';
+        let sum = 0;
         Cart.cart.forEach(ele => {
-            test += `Id: ${ele.productId}, Name: ${ele.productName}, Price: ${ele.productPrice}, qty: ${ele.qty}\n`
+            text += `Id: ${ele.productId}, Name: ${ele.productName}, Price: ${ele.productPrice}, qty: ${ele.qty}\n`
+            sum += Number(ele.productPrice.replace(',', '')) * ele.qty
         });
-        alert(test)
+        
+        alert(text + '\nTotal price: ' + sum)
     }
 }
 
