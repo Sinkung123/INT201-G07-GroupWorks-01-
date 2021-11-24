@@ -1,6 +1,7 @@
 import {products} from './product.js';
 const countCartEle = document.getElementById('cart-count');
 const deleteCartBtnEle = document.getElementById('delete-cart');
+const showCartBtn = document.getElementById('show-cart');
 if(JSON.parse(localStorage.getItem('cart')) === null){
     localStorage.setItem('cart', JSON.stringify([]));
 }
@@ -18,7 +19,6 @@ export let Cart = {
             Cart.cart.push({
             productId: id,
             productName: p.productName,
-            productImg: p.img,
             productPrice: p.productPrice,
             qty: 1
             })
@@ -44,8 +44,17 @@ export let Cart = {
     },
     findId(id){
         return this.cart.findIndex(item => item.productId == id)
+    },
+    showCart(){
+        Cart.cart.sort((a,b) => a.productId.localeCompare(b.productId)) //เรียง id
+        let test = '';
+        Cart.cart.forEach(ele => {
+            test += `Id: ${ele.productId}, Name: ${ele.productName}, Price: ${ele.productPrice}, qty: ${ele.qty}\n`
+        });
+        alert(test)
     }
 }
 
 deleteCartBtnEle.addEventListener('click', Cart.removeCart);
 countCartEle.textContent = Cart.countCart();
+showCartBtn.addEventListener('click', Cart.showCart)
